@@ -1,0 +1,25 @@
+﻿kind: ImageStream
+apiVersion: image.openshift.io/v1
+metadata:
+  annotations:
+    app.openshift.io/vcs-ref: main
+    app.openshift.io/vcs-uri: 'http://gitlab.promnet.com.sv/xtecuan/quarkus-with-volume.git'
+    openshift.io/generated-by: oc
+  name: app-con-volumen
+  namespace: samplexecuan
+  labels:
+    app: app-con-volumen
+    app.kubernetes.io/component: app-con-volumen
+    app.kubernetes.io/instance: app-con-volumen
+    app.kubernetes.io/name: app-con-volumen
+    app.kubernetes.io/part-of: app-con-volumen
+    app.openshift.io/runtime: java
+    app.openshift.io/runtime-version: openjdk-11-ubi8
+spec:
+  lookupPolicy:
+    local: false
+status:
+  dockerImageRepository: >-
+    image-registry.openshift-image-registry.svc:5000/samplexecuan/app-con-volumen
+  publicDockerImageRepository: >-
+    default-route-openshift-image-registry.apps.ocp01.promnet.com.sv/samplexecuan/app-con-volumen

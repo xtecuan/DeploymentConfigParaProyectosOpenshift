@@ -1,0 +1,118 @@
+﻿kind: BuildConfig
+apiVersion: build.openshift.io/v1
+metadata:
+  annotations:
+    app.openshift.io/vcs-ref: develop
+    app.openshift.io/vcs-uri: 'http://gitlab.promnet.com.sv/td/local/backend/adelanto-salario-digital.git'
+    openshift.io/generated-by: OpenShiftWebConsole
+  resourceVersion: '423338375'
+  name: adelanto-salarial-dev
+  uid: b9de410c-93d8-4287-9d86-f75a96d90eb8
+  creationTimestamp: '2023-03-31T22:27:26Z'
+  generation: 19
+  managedFields:
+    - manager: Go-http-client
+      operation: Update
+      apiVersion: build.openshift.io/v1
+      time: '2023-03-31T22:27:26Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:status':
+          'f:imageChangeTriggers': {}
+          'f:lastVersion': {}
+    - manager: Mozilla
+      operation: Update
+      apiVersion: build.openshift.io/v1
+      time: '2023-03-31T22:27:26Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:annotations':
+            .: {}
+            'f:app.openshift.io/vcs-ref': {}
+            'f:app.openshift.io/vcs-uri': {}
+            'f:openshift.io/generated-by': {}
+          'f:labels':
+            .: {}
+            'f:app': {}
+            'f:app.kubernetes.io/component': {}
+            'f:app.kubernetes.io/instance': {}
+            'f:app.kubernetes.io/name': {}
+            'f:app.kubernetes.io/part-of': {}
+            'f:app.openshift.io/runtime': {}
+            'f:app.openshift.io/runtime-version': {}
+        'f:spec':
+          'f:output':
+            'f:to': {}
+          'f:runPolicy': {}
+          'f:source':
+            'f:contextDir': {}
+            'f:git':
+              .: {}
+              'f:ref': {}
+              'f:uri': {}
+            'f:sourceSecret': {}
+            'f:type': {}
+          'f:strategy':
+            'f:sourceStrategy':
+              .: {}
+              'f:from': {}
+            'f:type': {}
+          'f:triggers': {}
+  namespace: adelanto-de-salario-dev
+  labels:
+    app: adelanto-salarial-dev
+    app.kubernetes.io/component: adelanto-salarial-dev
+    app.kubernetes.io/instance: adelanto-salarial-dev
+    app.kubernetes.io/name: adelanto-salarial-dev
+    app.kubernetes.io/part-of: adelanto-salarial-dev
+    app.openshift.io/runtime: java
+    app.openshift.io/runtime-version: openjdk-11-ubi8
+spec:
+  nodeSelector: null
+  output:
+    to:
+      kind: ImageStreamTag
+      name: 'adelanto-salarial-dev:latest'
+  resources: {}
+  successfulBuildsHistoryLimit: 5
+  failedBuildsHistoryLimit: 5
+  strategy:
+    type: Source
+    sourceStrategy:
+      from:
+        kind: ImageStreamTag
+        namespace: openshift
+        name: 'java:openjdk-11-ubi8'
+  postCommit: {}
+  source:
+    type: Git
+    git:
+      uri: >-
+        http://gitlab.promnet.com.sv/td/local/backend/adelanto-salario-digital.git
+      ref: develop
+    contextDir: /adelanto-salarial-api
+    sourceSecret:
+      name: gitlabsecretxtecuan
+  triggers:
+    - type: Generic
+      generic:
+        secretReference:
+          name: adelanto-salarial-dev-generic-webhook-secret
+    - type: GitLab
+      gitlab:
+        secretReference:
+          name: adelanto-salarial-dev-gitlab-webhook-secret
+    - type: ImageChange
+      imageChange: {}
+    - type: ConfigChange
+  runPolicy: Serial
+status:
+  lastVersion: 18
+  imageChangeTriggers:
+    - lastTriggeredImageID: >-
+        image-registry.openshift-image-registry.svc:5000/openshift/java@sha256:d79a665dd83b401028bd6cd7a8e59cc06fb74197689495c178bc9d54e374d5d8
+      from:
+        namespace: openshift
+        name: 'java:openjdk-11-ubi8'
+      lastTriggerTime: null

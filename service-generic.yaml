@@ -1,0 +1,33 @@
+﻿kind: Service
+apiVersion: v1
+metadata:
+  name: app-con-volumen
+  namespace: samplexecuan
+  labels:
+    app: app-con-volumen
+    app.kubernetes.io/component: app-con-volumen
+    app.kubernetes.io/instance: app-con-volumen
+    app.kubernetes.io/name: app-con-volumen
+    app.kubernetes.io/part-of: app-con-volumen
+    app.openshift.io/runtime: java
+    app.openshift.io/runtime-version: openjdk-11-ubi8
+  annotations:
+    app.openshift.io/vcs-ref: main
+    app.openshift.io/vcs-uri: 'http://gitlab.promnet.com.sv/xtecuan/quarkus-with-volume.git'
+    openshift.io/generated-by: oc
+spec:
+  ipFamilies:
+    - IPv4
+  ports:
+    - name: 8081-tcp
+      protocol: TCP
+      port: 8081
+      targetPort: 8081
+  internalTrafficPolicy: Cluster
+  type: ClusterIP
+  ipFamilyPolicy: SingleStack
+  sessionAffinity: None
+  selector:
+    app: app-con-volumen
+    deploymentconfig: app-con-volumen
+

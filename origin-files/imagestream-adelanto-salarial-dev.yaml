@@ -1,0 +1,131 @@
+﻿kind: ImageStream
+apiVersion: image.openshift.io/v1
+metadata:
+  annotations:
+    app.openshift.io/vcs-ref: develop
+    app.openshift.io/vcs-uri: 'http://gitlab.promnet.com.sv/td/local/backend/adelanto-salario-digital.git'
+    openshift.io/generated-by: OpenShiftWebConsole
+  resourceVersion: '423539664'
+  name: adelanto-salarial-dev
+  uid: c513defc-e020-4265-86df-df549b57462f
+  creationTimestamp: '2023-03-31T22:27:26Z'
+  generation: 1
+  managedFields:
+    - manager: Mozilla
+      operation: Update
+      apiVersion: image.openshift.io/v1
+      time: '2023-03-31T22:27:26Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:annotations':
+            .: {}
+            'f:app.openshift.io/vcs-ref': {}
+            'f:app.openshift.io/vcs-uri': {}
+            'f:openshift.io/generated-by': {}
+          'f:labels':
+            .: {}
+            'f:app': {}
+            'f:app.kubernetes.io/component': {}
+            'f:app.kubernetes.io/instance': {}
+            'f:app.kubernetes.io/name': {}
+            'f:app.kubernetes.io/part-of': {}
+            'f:app.openshift.io/runtime': {}
+            'f:app.openshift.io/runtime-version': {}
+    - manager: oc
+      operation: Update
+      apiVersion: image.openshift.io/v1
+      time: '2023-04-18T00:00:05Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:status':
+          'f:tags':
+            'k:{"tag":"latest"}':
+              'f:items': {}
+      subresource: status
+  namespace: adelanto-de-salario-dev
+  labels:
+    app: adelanto-salarial-dev
+    app.kubernetes.io/component: adelanto-salarial-dev
+    app.kubernetes.io/instance: adelanto-salarial-dev
+    app.kubernetes.io/name: adelanto-salarial-dev
+    app.kubernetes.io/part-of: adelanto-salarial-dev
+    app.openshift.io/runtime: java
+    app.openshift.io/runtime-version: openjdk-11-ubi8
+spec:
+  lookupPolicy:
+    local: false
+status:
+  dockerImageRepository: >-
+    image-registry.openshift-image-registry.svc:5000/adelanto-de-salario-dev/adelanto-salarial-dev
+  publicDockerImageRepository: >-
+    default-route-openshift-image-registry.apps.ocp01.promnet.com.sv/adelanto-de-salario-dev/adelanto-salarial-dev
+  tags:
+    - tag: latest
+      items:
+        - created: '2023-05-17T20:05:56Z'
+          dockerImageReference: >-
+            image-registry.openshift-image-registry.svc:5000/adelanto-de-salario-dev/adelanto-salarial-dev@sha256:8a9a5614d28e9f9cb24dd1fde446e53fe35c935b01f19793885f68cc0bb594b4
+          image: >-
+            sha256:8a9a5614d28e9f9cb24dd1fde446e53fe35c935b01f19793885f68cc0bb594b4
+          generation: 1
+        - created: '2023-05-16T21:41:54Z'
+          dockerImageReference: >-
+            image-registry.openshift-image-registry.svc:5000/adelanto-de-salario-dev/adelanto-salarial-dev@sha256:6f92b9c78db4ad36b76d69625773393bf90a449f46fa7a66c5143229a7a167e1
+          image: >-
+            sha256:6f92b9c78db4ad36b76d69625773393bf90a449f46fa7a66c5143229a7a167e1
+          generation: 1
+        - created: '2023-05-15T17:54:36Z'
+          dockerImageReference: >-
+            image-registry.openshift-image-registry.svc:5000/adelanto-de-salario-dev/adelanto-salarial-dev@sha256:8bafa2506fe5c34a63daada5bbb8ce537641d0c9ecc37b5129cbcc8e84307799
+          image: >-
+            sha256:8bafa2506fe5c34a63daada5bbb8ce537641d0c9ecc37b5129cbcc8e84307799
+          generation: 1
+        - created: '2023-05-12T23:25:42Z'
+          dockerImageReference: >-
+            image-registry.openshift-image-registry.svc:5000/adelanto-de-salario-dev/adelanto-salarial-dev@sha256:a519c7991413f24d226b67b9cf05c8a48707586750924528dadf032a2e7a9c19
+          image: >-
+            sha256:a519c7991413f24d226b67b9cf05c8a48707586750924528dadf032a2e7a9c19
+          generation: 1
+        - created: '2023-04-26T19:57:29Z'
+          dockerImageReference: >-
+            image-registry.openshift-image-registry.svc:5000/adelanto-de-salario-dev/adelanto-salarial-dev@sha256:aad1cddaa655ab31cf9243a8d54a040cd253f5dd138dac3ed99c508945c33ea1
+          image: >-
+            sha256:aad1cddaa655ab31cf9243a8d54a040cd253f5dd138dac3ed99c508945c33ea1
+          generation: 1
+        - created: '2023-04-20T23:17:12Z'
+          dockerImageReference: >-
+            image-registry.openshift-image-registry.svc:5000/adelanto-de-salario-dev/adelanto-salarial-dev@sha256:f8e05218f24acc604d353243aff7e9c157ed5fa8bd83df7ed6ac8104abfbe252
+          image: >-
+            sha256:f8e05218f24acc604d353243aff7e9c157ed5fa8bd83df7ed6ac8104abfbe252
+          generation: 1
+        - created: '2023-04-19T16:19:52Z'
+          dockerImageReference: >-
+            image-registry.openshift-image-registry.svc:5000/adelanto-de-salario-dev/adelanto-salarial-dev@sha256:a6c0e64c9f8561aa1976900930c6739c35d1b05e29467f633f1b82b95522d332
+          image: >-
+            sha256:a6c0e64c9f8561aa1976900930c6739c35d1b05e29467f633f1b82b95522d332
+          generation: 1
+        - created: '2023-04-17T23:16:30Z'
+          dockerImageReference: >-
+            image-registry.openshift-image-registry.svc:5000/adelanto-de-salario-dev/adelanto-salarial-dev@sha256:35c83738edc212eb28214ba119d54c876f2dd439c863a030a35165bb1e1d0d79
+          image: >-
+            sha256:35c83738edc212eb28214ba119d54c876f2dd439c863a030a35165bb1e1d0d79
+          generation: 1
+        - created: '2023-04-12T16:44:50Z'
+          dockerImageReference: >-
+            image-registry.openshift-image-registry.svc:5000/adelanto-de-salario-dev/adelanto-salarial-dev@sha256:5ce4ba1baf3a9bc8722aca1f509627dcb9719d4cbdd261f5181c59b49596cbd0
+          image: >-
+            sha256:5ce4ba1baf3a9bc8722aca1f509627dcb9719d4cbdd261f5181c59b49596cbd0
+          generation: 1
+        - created: '2023-04-10T21:50:43Z'
+          dockerImageReference: >-
+            image-registry.openshift-image-registry.svc:5000/adelanto-de-salario-dev/adelanto-salarial-dev@sha256:7ca301188133ac9215bb54b59b1442a21ad248552dd9b09102d4260038878992
+          image: >-
+            sha256:7ca301188133ac9215bb54b59b1442a21ad248552dd9b09102d4260038878992
+          generation: 1
+        - created: '2023-04-10T21:44:30Z'
+          dockerImageReference: >-
+            image-registry.openshift-image-registry.svc:5000/adelanto-de-salario-dev/adelanto-salarial-dev@sha256:d3990d634b940a12310adc9d0866db9fa94b2b21da0971723d89f4e9ab19591b
+          image: >-
+            sha256:d3990d634b940a12310adc9d0866db9fa94b2b21da0971723d89f4e9ab19591b
+          generation: 1

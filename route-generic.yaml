@@ -1,0 +1,22 @@
+﻿kind: Route
+apiVersion: route.openshift.io/v1
+metadata:
+  name: app-con-volumen
+  namespace: samplexecuan
+  labels:
+    app: app-con-volumen
+    app.kubernetes.io/component: app-con-volumen
+    app.kubernetes.io/instance: app-con-volumen
+    app.kubernetes.io/name: app-con-volumen
+    app.kubernetes.io/part-of: app-con-volumen
+    app.openshift.io/runtime: java
+    app.openshift.io/runtime-version: openjdk-11-ubi8
+spec:
+  host: app-con-volumen.apps.factory.promnet.com.sv
+  to:
+    kind: Service
+    name: app-con-volumen
+    weight: 100
+  port:
+    targetPort: 8081-tcp
+  wildcardPolicy: None

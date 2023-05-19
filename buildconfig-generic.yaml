@@ -1,0 +1,57 @@
+kind: BuildConfig
+apiVersion: build.openshift.io/v1
+metadata:
+  annotations:
+    app.openshift.io/vcs-ref: main
+    app.openshift.io/vcs-uri: 'http://gitlab.promnet.com.sv/xtecuan/quarkus-with-volume.git'
+    openshift.io/generated-by: oc
+  name: app-con-volumen
+  namespace: samplexecuan
+  labels:
+    app: app-con-volumen
+    app.kubernetes.io/component: app-con-volumen
+    app.kubernetes.io/instance: app-con-volumen
+    app.kubernetes.io/name: app-con-volumen
+    app.kubernetes.io/part-of: app-con-volumen
+    app.openshift.io/runtime: java
+    app.openshift.io/runtime-version: openjdk-11-ubi8
+spec:
+  nodeSelector: null
+  output:
+    to:
+      kind: ImageStreamTag
+      name: 'app-con-volumen:latest'
+  resources: {}
+  successfulBuildsHistoryLimit: 5
+  failedBuildsHistoryLimit: 5
+  strategy:
+    type: Source
+    sourceStrategy:
+      from:
+        kind: ImageStreamTag
+        namespace: openshift
+        name: 'java:openjdk-11-ubi8'
+  postCommit: {}
+  source:
+    type: Git
+    git:
+      uri: >-
+        http://gitlab.promnet.com.sv/xtecuan/quarkus-with-volume.git
+      ref: main
+    contextDir: /code-with-quarkus
+    sourceSecret:
+      name: gitlab-secret-xtecuan
+  triggers:
+    - type: Generic
+      generic:
+        secretReference:
+          name: app-con-volumen-generic-webhook-secret
+    - type: GitLab
+      gitlab:
+        secretReference:
+          name: app-con-volumen-gitlab-webhook-secret
+    - type: ImageChange
+      imageChange: {}
+    - type: ConfigChange
+  runPolicy: Serial
+
